@@ -1,12 +1,9 @@
 import {enigme} from './enigmes.js';
-import {sauron, chronos, lilith} from './boss.js';
-import {merlin, ragnar, legolas} from './heros.js'
-
-console.log(enigme);
-console.log(sauron, chronos, lilith)
-console.log(merlin, ragnar, legolas)
+import {sauron, chronos, lilith, random, bosses} from './boss.js';
+import {merlin, ragnar, legolas} from './heros.js';
 
 
-legolas.attaquer(chronos);
-legolas.attaquer(chronos);
-console.log(chronos.vie);
+let bossavaincre = random(bosses)
+console.log("un " + bossavaincre.nom  + " sauvage apparaît, ses HP sont de " + bossavaincre.vie );
+legolas.attaquer(bossavaincre);
+console.log("c'est super efficace " +  bossavaincre.nom  + " perd " + legolas.attaque + " ses nouveaux points de vie sont " + bossavaincre.vie) ;

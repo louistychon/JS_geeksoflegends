@@ -11,6 +11,7 @@ class heros {
             }
             else{
                 boss.vie -= this.attaque;
+                console.log("Attaque réussie")
             }
 
         }
@@ -63,7 +64,7 @@ class mage extends heros {
             if (this.mana <= 0){
                 tour++;
                 this.mana = 7;
-            }else{
+            }else {
                 this.attaquer();
                 this.mana -= 2;
             }
@@ -72,8 +73,8 @@ class mage extends heros {
 }
 
 
-let merlin = new mage("Merlin", 100, 20, false, 6);
-let ragnar = new guerrier("Ragnar", 100, 20,false, 0);
-let legolas = new archer("Legolas", 70, 75, false, 0);
+let merlin = new mage("Merlin", 100, 50, false, 6);
+let ragnar = new guerrier("Ragnar", 100, 75,false, 0);
+let legolas = new archer("Legolas", 100, 250, false, 0);
 
 export {merlin, ragnar, legolas}
