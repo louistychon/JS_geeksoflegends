@@ -13,9 +13,12 @@ class heros {
                 boss.vie -= this.attaque;
                 console.log("Attaque réussie")
             }
-
+        this.defense = () => {
+            this.attaque /= 2;
+            this.vie *= 2.5;
         }
     }
+}
 }
 
 class guerrier extends heros {
@@ -23,7 +26,7 @@ class guerrier extends heros {
         super(nom, vie, mort, rage);
         this.attaque = attaque;
         this.rage = rage;
-        this.cpt = (tour) => {
+        this.attaqueGuerrier = (tour) => {
             this.attaquer()
             if (tour < 4) {
                 this.rage += 1;
@@ -77,4 +80,6 @@ let merlin = new mage("Merlin", 100, 50, false, 6);
 let ragnar = new guerrier("Ragnar", 100, 75,false, 0);
 let legolas = new archer("Legolas", 100, 250, false, 0);
 
-export {merlin, ragnar, legolas}
+let herost = [merlin, ragnar, legolas]
+
+export {herost}

@@ -15,12 +15,10 @@ let chronos = new boss("Chronos", 1200, 55);
 let lilith = new boss("Lilith", 1250, 23);
 let chogath = new boss("Chogath",700, 23);
 
-
-
 let bosses = [sauron, chronos, lilith, chogath];
 
 function random(tableau) {
     return tableau[Math.floor(Math.random()*tableau.length)];
 }
 
-export {sauron, chronos, lilith, random, bosses};
+export {random, bosses};
