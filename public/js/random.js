@@ -1,6 +1,7 @@
-import {
-    random
-} from 'boss.js';
+function random(tableau) {
+    return tableau[Math.floor(Math.random()*tableau.length)];
+}
+
 //roll the dices to know if you are able to attack.
 let dices = [1, 2, 3, 4, 5, 6]
 
@@ -13,7 +14,9 @@ function resultatDes() {
     }
 }
 
-export {
+// random attack or defense function
+
+export {random,
     randompick,
     dices
 }
