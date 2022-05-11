@@ -5,15 +5,15 @@ class heros {
         this.attaque = attaque;
         this.mort = mort;
         this.attaquer = (boss) => {
-            if (boss.vie <= this.attaque) {
+            if (this.mort === false && boss.vie <= this.attaque) {
                 boss.vie = 0;
                 boss.mort = true;
                 console.log("Le champion reussit son attaque & Le boss meurt sur le coup, bien joué")
-            } else if (this.vie > 0 && boss.mort === false) {
+            } else if (this.mort === false && boss.mort === false) {
                 boss.vie -= this.attaque;
                 console.log("Le champion reussit son attaque, les nouveaux points de vie du boss sont : " + boss.vie)
-            }
         }
+    }
         this.defense = () => {
             if(this.mort === false){
             this.attaque -= 2;

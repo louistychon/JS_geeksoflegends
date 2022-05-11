@@ -18,7 +18,7 @@ import {
 
 let champion = random(herost);
 let bossavaincre = random(bosses);
-let attaqueoudefense = Math.round(Math.random());
+let attaqueoudefense;
 
 //initialisation du match
 
@@ -31,4 +31,4 @@ do {
     attaqueoudefense == 1 ? champion.attaquer(bossavaincre) : champion.defense();
     bossavaincre.bossAttaquer(champion)
 }
-while (bossavaincre.mort === false)
+while (champion.mort === false);

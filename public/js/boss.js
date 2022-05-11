@@ -22,10 +22,10 @@ class boss {
     }
 }
 
-let sauron = new boss("Sauron", 600, 100, false);
-let chronos = new boss("Chronos", 500, 58, false);
-let lilith = new boss("Lilith", 400, 50, false);
-let chogath = new boss("Chogath", 700,30, false);
+let sauron = new boss("Sauron", 1000, 100, false);
+let chronos = new boss("Chronos", 1500, 58, false);
+let lilith = new boss("Lilith", 2000, 50, false);
+let chogath = new boss("Chogath", 1700,30, false);
 
 let bosses = [sauron, chronos, lilith, chogath];
 
