@@ -37,7 +37,7 @@ function randomEnigme(bossavaincre) {
         let userinput;
         for (let index = 0; index < enigme.length; index++) {
             while (essais <= 2){
-               userinput = prompt("l'énigme du boss: " + uneEnigme); // le user entre sa réponse stockée dans userinput
+               userinput = prompt("20% des HP du BOSS !!! l'énigme du boss: " + uneEnigme); // le user entre sa réponse stockée dans userinput
                 if (userinput == responseEnigme) {
                     console.log("vous gagnez le combat, gg")
                     essais += 2;

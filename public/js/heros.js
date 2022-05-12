@@ -80,11 +80,16 @@ class mage extends heros {
 }
 
 
-let merlin = new mage("Merlin", 200, 200, false, 4);
-let ragnar = new guerrier("Ragnar", 400, 100, false, 0); //attention, la rage commence TOUJOURS à 0
-let legolas = new archer("Legolas", 300, 250, false, 0);
+let merlin = new mage("Merlin", 500, 200, false, 4);
+let ragnar = new guerrier("Ragnar", 600, 100, false, 0); //attention, la rage commence TOUJOURS à 0
+let legolas = new archer("Legolas", 700, 250, false, 0);
+let jimmyneutron = new mage("Jimmyneutron",200, 150, false, 4);
+let mortimer = new guerrier("Mortimer",500, 30, false, 0);
+let jeanvaljean = new archer("Jeanvaljean",700,500, false, 0)
 
-let herost = [merlin, ragnar, legolas]
+
+
+let herost = [merlin, ragnar, legolas, jimmyneutron, mortimer, jeanvaljean]
 
 export {
     herost
