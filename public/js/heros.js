@@ -12,6 +12,8 @@ class heros {
             } else if (this.mort === false && boss.mort === false) {
                 boss.vie -= this.attaque;
                 console.log("Le champion reussit son attaque, les nouveaux points de vie du boss sont : " + boss.vie)
+            }else {
+                console.log("error" + boss.vie + "xx " + this.attaque + "nope" +  boss.mort)
             }
         }
         this.defense = () => {
@@ -27,21 +29,17 @@ class heros {
 
 class guerrier extends heros {
     constructor(nom, vie, attaque, mort, rage) {
-        super(nom, vie, mort, rage);
-        this.attaque = attaque;
+        super(nom, vie, attaque, mort, rage);
         this.rage = rage;
-        this.attaqueSpeciale = () => {
-            this.attaquer();
-            if (rage < 4) {
+        this.attaqueSpeciale = (boss) => {
+            this.attaquer(boss);
+            if (this.rage < 4) {
                 this.rage += 1;
-                console.log("rage + 1");
-            } else if (rage == 4) {
+                console.log("la rage monte à " + this.rage);
+            } else if (this.rage === 4) {
                 this.attaque * 1.25;
-                console.log("attaque + 25 %");
-            } else {
-                this.rage = 0;
-                console.log("la rage retombe à 0");
-            }
+                console.log("attaque + 25 % -> nouveaux points d'attaque : " + this.attaque);
+                this.rage = 0;}
         }
     }
 }
@@ -52,13 +50,14 @@ class archer extends heros {
     constructor(nom, vie, attaque, mort, fleches) {
         super(nom, vie, attaque, mort);
         this.fleches = nombrefleches[Math.round(Math.random(nombrefleches) * nombrefleches.length)];
-        this.attaqueSpeciale = () => {
-            this.attaquer()
-            this.fleches -= 2;
-            console.log("rajour de 2 fleches")
+        this.attaqueSpeciale = (boss) => {
             if (fleches <= 0) {
-                this.fleches = 0;
+                this.fleches = 6;
             }
+            else{
+            this.attaquer(boss);
+            this.fleches -= 2;
+            console.log("moins 2 fleches, fleches actuelles: " + this.fleches)}
         }
     }
 }
@@ -67,12 +66,12 @@ class mage extends heros {
     constructor(nom, vie, attaque, mort, mana) {
         super(nom, vie, attaque, mort);
         this.mana = mana;
-        this.attaqueSpeciale = () => {
+        this.attaqueSpeciale = (boss) => {
             if (this.mana <= 0) {
                 this.mana = 7;
                 console.log("le mana du mage remonte à 7")
             } else {
-                this.attaquer();
+                this.attaquer(boss);
                 this.mana -= 2;
                 console.log("-2 de mana pour le mage")
             }
@@ -81,8 +80,8 @@ class mage extends heros {
 }
 
 
-let merlin = new mage("Merlin", 200, 200, false, 6);
-let ragnar = new guerrier("Ragnar", 400, 100, false, 0);
+let merlin = new mage("Merlin", 200, 200, false, 4);
+let ragnar = new guerrier("Ragnar", 400, 100, false, 0); //attention, la rage commence TOUJOURS à 0
 let legolas = new archer("Legolas", 300, 250, false, 0);
 
 let herost = [merlin, ragnar, legolas]

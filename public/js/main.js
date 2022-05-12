@@ -1,3 +1,5 @@
+"use strict";
+
 import {
     enigme,
     reponsesEnigme
@@ -28,14 +30,14 @@ console.log("*************************** READYYYYYYYYY ? FIGHT !! **************
 
 function randomEnigme(bossavaincre) {
     if (bossavaincre.vie <= 0.2 * bossavaincre.vieMax) {
-        let uneEnigme = enigme[Math.round(Math.random() * enigme.length)] //génère une énigme random
+        let uneEnigme = enigme[Math.floor(Math.random()*enigme.length)] //génère une énigme random
         let responseEnigme = reponsesEnigme[enigme.indexOf(uneEnigme)]; //on stocke la réponse de l'énigme random dans responseEnigme
         console.log(uneEnigme)
         let essais = 0; //nombre de chances de répondre = 3 donc max index 2 dans la boucle
         let userinput;
         for (let index = 0; index < enigme.length; index++) {
             while (essais <= 2){
-               userinput = prompt("l'énigme: " + uneEnigme); // le user entre sa réponse stockée dans userinput
+               userinput = prompt("l'énigme du boss: " + uneEnigme); // le user entre sa réponse stockée dans userinput
                 if (userinput == responseEnigme) {
                     console.log("vous gagnez le combat, gg")
                     essais += 2;
@@ -58,7 +60,7 @@ function randomEnigme(bossavaincre) {
 
 do {
     attaqueoudefense = Math.round(Math.random());
-    attaqueoudefense == 1 ? champion.attaquer(bossavaincre) : champion.defense();
+    attaqueoudefense == 1 ? champion.attaqueSpeciale(bossavaincre) : champion.defense();
     randomEnigme(bossavaincre);
     bossavaincre.bossAttaquer(champion)
 }
