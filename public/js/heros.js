@@ -12,13 +12,14 @@ class heros {
             } else if (this.mort === false && boss.mort === false) {
                 boss.vie -= this.attaque;
                 console.log("Le champion reussit son attaque, les nouveaux points de vie du boss sont : " + boss.vie)
+            }
         }
-    }
         this.defense = () => {
-            if(this.mort === false){
-            this.attaque -= 2;
-            this.vie += 50;
-            console.log("le champion se défend, nouveaux points d'attaque : " + this.attaque + " et nouveaux points de vie " + this.vie)}
+            if (this.mort === false) {
+                this.attaque -= 2;
+                this.vie += 50;
+                console.log("le champion se défend, nouveaux points d'attaque : " + this.attaque + " et nouveaux points de vie " + this.vie)
+            }
         }
     }
 }
@@ -33,8 +34,10 @@ class guerrier extends heros {
             this.attaquer();
             if (rage < 4) {
                 this.rage += 1;
+                console.log("rage + 1");
             } else if (rage == 4) {
-                this.rage * 1.25
+                this.attaque * 1.25;
+                console.log("attaque + 25 %");
             } else {
                 this.rage = 0;
                 console.log("la rage retombe à 0");
@@ -49,8 +52,7 @@ class archer extends heros {
     constructor(nom, vie, attaque, mort, fleches) {
         super(nom, vie, attaque, mort);
         this.fleches = nombrefleches[Math.round(Math.random(nombrefleches) * nombrefleches.length)];
-        console.log(this.fleches);
-        this.attaqueSpeciale = (tour) => {
+        this.attaqueSpeciale = () => {
             this.attaquer()
             this.fleches -= 2;
             console.log("rajour de 2 fleches")
@@ -80,7 +82,7 @@ class mage extends heros {
 
 
 let merlin = new mage("Merlin", 200, 200, false, 6);
-let ragnar = new guerrier("Ragnar", 400, 300, false, 0);
+let ragnar = new guerrier("Ragnar", 400, 100, false, 0);
 let legolas = new archer("Legolas", 300, 250, false, 0);
 
 let herost = [merlin, ragnar, legolas]
